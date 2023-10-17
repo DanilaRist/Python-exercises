@@ -1,0 +1,121 @@
+"""
+number = 1
+
+while number <= 1000:
+    if number % 3 == 0:
+        print(number)
+    number += 1
+"""
+
+"""
+while True:
+      inches = float(input("Enter a length in inches (or a negative value to quit): "))
+
+    if inches < 0:
+        print("Program stopped")
+        break
+
+     centimeters = inches * 2.54
+
+    print(f"{inches} inches is equal to {centimeters} centimeters")
+"""
+
+"""
+numbers = []  
+while True:
+    user_input = input("Enter a number (or press Enter to quit): ")
+
+    if user_input == "":
+        break  
+
+    try:
+        number = float(user_input) 
+        numbers.append(number) 
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+if not numbers:
+    print("No numbers entered.")
+else:
+    smallest = min(numbers)
+    largest = max(numbers)
+
+    print(f"Smallest number: {smallest}")
+    print(f"Largest number: {largest}")
+"""
+
+"""
+import random
+
+rn = random.randint(1, 10)
+
+user_guess = 0
+
+while user_guess != rn:
+    try:
+        user_guess = int(input("Guess the number between 1 and 10:  "))
+
+        if user_guess < 1 or user_guess > 10:
+            print("Please enter a number between 1 and 10.")
+        elif user_guess < rn:
+            print("Too low. Try again.")
+        elif user_guess > rn:
+            print("Too high. Try again.")
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
+
+print(f"Correct! The number is {rn}. You guessed it!")
+"""
+
+"""
+correct_username = "python"
+correct_password = "rules"
+
+attempts = 0
+
+while attempts < 5:
+    # Ask the user for a username and password
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+
+    if username == correct_username and password == correct_password:
+        print("Welcome!")
+        break
+    else:
+        print("Access denied. Please try again.")
+        attempts += 1
+
+if attempts == 5:
+    print("Access denied. You've reached the maximum login attempts.")
+"""
+
+"""
+import random
+
+def approximate_pi(num_points):
+    inside_circle = 0
+
+    for _ in range(num_points):
+        x = random.uniform(-1, 1)
+        y = random.uniform(-1, 1)
+
+        if x**2 + y**2 < 1:
+            inside_circle += 1
+
+    estimated_pi = 4 * inside_circle / num_points
+    return estimated_pi
+
+def main():
+    print("Approximate Pi Calculation")
+    num_points = int(input("Enter the number of random points to generate: "))
+
+    if num_points <= 0:
+        print("Please enter a positive number of points.")
+        return
+
+    estimated_pi = approximate_pi(num_points)
+    print(f"Estimated value of pi: {estimated_pi}")
+
+if __name__ == "__main":
+    main()
+"""
