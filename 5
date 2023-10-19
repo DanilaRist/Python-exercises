@@ -1,0 +1,77 @@
+"""
+import random
+
+def roll_dice(num_dice):
+    total = 0
+    for _ in range(num_dice):
+        roll = random.randint(1, 6)
+        print(f"Rolled: {roll}")
+        total += roll
+    return total
+
+def main():
+    num_dice = int(input("How many dice would you like to roll? "))
+    
+    if num_dice <= 0:
+        print("Please enter a positive number of dice.")
+        return
+    
+    total = roll_dice(num_dice)
+    print(f"Total sum of the rolled dice: {total}")
+
+if __name__ == "__main":
+    main()
+"""
+
+"""
+numbers = []
+
+while True:
+    user_input = input("Enter a number : ")
+    
+    if not user_input:
+        break
+    
+    try:
+        number = float(user_input)
+        numbers.append(number)
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+numbers.sort(reverse=True)
+
+print("The five greatest numbers are:")
+for i in range(min(5, len(numbers))): 
+    print(numbers[i])
+"""
+
+"""
+def is_prime(num):
+    if num <= 1:
+        return False  
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False 
+    return True  
+
+try:
+    num = int(input("Enter an integer number: "))
+    if is_prime(num):
+        print(f"{num} is a prime number.")
+    else:
+        print(f"{num} is not a prime number.")
+except ValueError:
+    print("Invalid input. Please enter an integer number.")
+"""
+
+"""
+cities = []
+
+for i in range(5):
+    city_name = input(f"Enter the name of city {i + 1}: ")
+    cities.append(city_name)
+
+print("Cities you entered:")
+for city in cities:
+    print(city)
+"""
