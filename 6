@@ -1,0 +1,116 @@
+"""
+import random
+
+def roll_dice():
+    return random.randint(1, 6)
+
+rolls = 0
+while True:
+    result = roll_dice()
+    rolls += 1
+    print(f"Roll {rolls}: {result}")
+    if result == 6:
+        break
+
+print("You rolled a 6! It took", rolls, "rolls.")
+"""
+
+"""
+import random
+
+def roll_dice(sides):
+    return random.randint(1, sides)
+
+max_number = int(input("Enter the maximum number on the dice: "))
+
+rolls = 0
+while True:
+    result = roll_dice(max_number)
+    rolls += 1
+    print(f"Roll {rolls}: {result}")
+    if result == max_number:
+        break
+
+print(f"You rolled a {max_number}! It took {rolls} rolls.")
+"""
+"""
+def gallons_to_liters(gallons):
+    liters = gallons * 3.78541
+    return liters
+
+while True:
+    gallons = float(input("Enter a quantity in American gallons (negative value to quit): "))
+    
+    if gallons < 0:
+        break  
+
+    liters = gallons_to_liters(gallons)
+    
+    print(f"{gallons} American gallons is equal to {liters} liters.\n")
+
+print("Program ended.")
+"""
+
+"""
+def sum_of_list(numbers):
+    total = sum(numbers)
+    return total
+
+if __name__ == "__main__":
+   
+    integer_list = [1, 2, 3, 4, 5]
+
+    result = sum_of_list(integer_list)
+
+    print(f"The sum of the integers is: {result}")
+"""
+
+"""
+def remove_odd_numbers(numbers):
+    even_numbers = [x for x in numbers if x % 2 == 0]
+    return even_numbers
+
+if __name__ == "__main__":
+     integer_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    even_list = remove_odd_numbers(integer_list)
+
+    print("Original list:", integer_list)
+
+    print("List with odd numbers removed:", even_list)
+"""
+
+"""
+def calculate_unit_price(diameter, price):
+    radius = diameter / 2
+    area = 3.14159 * (radius ** 2)  # Calculate the area of the circular pizza
+    unit_price = price / (area / 10_000)  # Convert area to square meters
+    return unit_price
+
+# Main program
+if __name__ == "__main":
+    print("Pizza 1:")
+    diameter1 = float(input("Enter the diameter of the first pizza (in cm): "))
+    price1 = float(input("Enter the price of the first pizza (in euros): "))
+
+    print("\nPizza 2:")
+    diameter2 = float(input("Enter the diameter of the second pizza (in cm): "))
+    price2 = float(input("Enter the price of the second pizza (in euros): "))
+
+    unit_price1 = calculate_unit_price(diameter1, price1)
+    unit_price2 = calculate_unit_price(diameter2, price2)
+
+    print("\nUnit price of Pizza 1 per square meter: {:.2f} euros".format(unit_price1))
+    print("Unit price of Pizza 2 per square meter: {:.2f} euros".format(unit_price2))
+
+    if unit_price1 < unit_price2:
+        print("Pizza 1 is better value for money.")
+    elif unit_price2 < unit_price1:
+        print("Pizza 2 is better value for money.")
+    else:
+        print("Both pizzas cost the same.")
+
+"""
+
+
+
