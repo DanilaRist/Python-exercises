@@ -1,1 +1,85 @@
+"""
+import sqlite3
+
+conn = sqlite3.connect('airports.db')
+cursor = conn.cursor()
+
+while True:
+    icao_code = input("Enter the ICAO code of the airport (or 'quit' to exit): ").strip().upper()
+
+    if icao_code == 'QUIT':
+        break
+
+    cursor.execute("SELECT name, location FROM airport WHERE ident = ?", (icao_code,))
+    result = cursor.fetchone()
+
+    if result:
+        airport_name, airport_location = result
+        print(f"ICAO Code: {icao_code}")
+        print(f"Airport Name: {airport_name}")
+        print(f"Location: {airport_location}")
+    else:
+        print(f"Airport with ICAO code {icao_code} not found in the database.")
+
+conn.close()
+"""
+
+"""
+import sqlite3
+
+conn = sqlite3.connect('airports.db')
+cursor = conn.cursor()
+
+country_code = input("Enter a country code (e.g., FI): ").strip().upper()
+
+cursor.execute("SELECT type, name FROM airport WHERE iso_country = ? ORDER BY type", (country_code,))
+results = cursor.fetchall()
+
+if results:
+    print(f"Airports in {country_code} grouped by type:")
+    
+    current_type = None
+    for result in results:
+        airport_type, airport_name = result
+        
+        if airport_type != current_type:
+            print(f"\n{airport_type} Airports:")
+            current_type = airport_type
+        
+        print(f"  {airport_name}")
+else:
+    print(f"No airports found in {country_code}.")
+
+conn.close()
+"""
+
+"""
+from geopy.distance import great_circle
+import sqlite3
+
+conn = sqlite3.connect('airports.db')
+cursor = conn.cursor()
+
+icao_code1 = input("Enter the ICAO code of the first airport: ").strip().upper()
+icao_code2 = input("Enter the ICAO code of the second airport: ").strip().upper()
+
+cursor.execute("SELECT latitude_deg, longitude_deg FROM airport WHERE ident = ? OR ident = ?", (icao_code1, icao_code2))
+results = cursor.fetchall()
+
+if len(results) != 2:
+    print("Error: Both airports not found.")
+else:
+    coord1, coord2 = results
+
+    from geopy.point import Point
+    location1 = Point(coord1)
+    location2 = Point(coord2)
+
+    distance = great_circle(location1, location2).kilometers
+    print(f"Distance between {icao_code1} and {icao_code2}: {distance:.2f} kilometers")
+
+conn.close()
+"""
+
+
 
