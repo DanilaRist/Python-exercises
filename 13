@@ -18,3 +18,26 @@ def check_prime(num):
 if __name__ == '__main__':
     app.run(debug=True)"""
 
+
+"""from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+
+airport_database = {
+    "EFHK": {"Name": "Helsinki-Vantaa Airport", "Location": "Helsinki"},
+
+}
+
+@app.route('/airport/<icao>')
+def get_airport_info(icao):
+    airport_info = airport_database.get(icao.upper())
+    if airport_info:
+        result = {"ICAO": icao.upper(), "Name": airport_info["Name"], "Location": airport_info["Location"]}
+        return jsonify(result)
+    else:
+        return jsonify({"error": "Airport not found"}), 404
+
+
+if __name__ == '__main__':
+    app.run(use_reloader=True, host='127.0.0.1', port=5000)"""
