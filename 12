@@ -1,0 +1,47 @@
+"""import requests
+
+def get_random_joke():
+    api_url = "https://api.chucknorris.io/jokes/random"
+    response = requests.get(api_url)
+
+    if response.status_code == 200:
+        joke_data = response.json()
+        joke_text = joke_data.get("value")
+        return joke_text
+    else:
+        return "Failed to fetch Chuck Norris joke."
+
+if __name__ == "__main__":
+    joke = get_random_joke()
+    print(joke)"""
+
+"""import requests
+
+def kelvin_to_celsius(kelvin):
+    return kelvin - 273.15
+
+def get_weather(api_key, city):
+    base_url = "https://api.openweathermap.org/data/2.5/weather"
+    params = {"q": city, "appid": api_key}
+
+    response = requests.get(base_url, params=params)
+    data = response.json()
+
+    if response.status_code == 200:
+
+        weather_description = data["weather"][0]["description"]
+        temperature_kelvin = data["main"]["temp"]
+
+        temperature_celsius = kelvin_to_celsius(temperature_kelvin)
+
+        print(f"Weather in {city}: {weather_description}")
+        print(f"Temperature: {temperature_celsius:.2f}°C")
+    else:
+        print(f"Error: Unable to fetch weather information. Status code: {response.status_code}")
+
+if __name__ == "__main__":
+
+    api_key = "df87181ff82625dfd2314a1d3c38d5cb"
+
+    city = input("Enter the name of the municipality: ")
+    get_weather(api_key, city)"""
