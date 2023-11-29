@@ -89,42 +89,39 @@ class Car:
         self.t_distance = 0
 
     def accelerate(self, change):
+        # Ensure the speed stays within bounds [0, max_speed]
         self.c_speed = max(0, min(self.c_speed + change, self.max_speed))
 
     def drive(self, hours):
+        # Increase the traveled distance based on constant speed
         self.t_distance += self.c_speed * hours
 
     def __str__(self):
-        return f"| {self.reg_number.ljust(8)} | {str(self.max_speed).ljust(10)} | {str(self.c_speed).ljust(12)} | {str(self.t_distance).ljust(15)} |"
+        return f"{self.reg_number}\t\t{self.max_speed} km/h\t\t{self.c_speed} km/h\t\t{self.t_distance} km"
 
 
-if __name__ == "__main__":
-
-    cars = [Car(reg_number=f"ABC-{i}", max_speed=random.randint(100, 200)) for i in range(1, 11)]
-
-    race_completed = False
-    hour = 1
-
-    while not race_completed:
-        print(f"\n--- Hour {hour} ---")
-        print("| Registration | Max Speed | Current Speed | Traveled Distance |")
-        print("|--------------|-----------|----------------|-------------------|")
-
+def simulate_race(cars):
+    race_finished = False
+    while not race_finished:
         for car in cars:
             car.accelerate(random.randint(-10, 15))
+
             car.drive(1)
 
             if car.t_distance >= 10000:
-                race_completed = True
+                race_finished = True
+                break
 
-            print(car)
-
-        hour += 1
-
-    print("\nRace Completed! Results:")
-    print("| Registration | Max Speed | Current Speed | Traveled Distance |")
-    print("|--------------|-----------|----------------|-------------------|")
-
+    print("\nRace Finished! Results:")
+    print("Registration\tMax Speed\tCurrent Speed\tTraveled Distance")
+    print("-" * 70)
     for car in cars:
-        print(car)"""
+        print(car)
+
+
+if __name__ == "__main__":
+    # Create a list of 10 cars
+    cars = [Car(reg_number=f"ABC-{i}", max_speed=random.randint(100, 200)) for i in range(1, 11)]
+
+    simulate_race(cars)"""
     
