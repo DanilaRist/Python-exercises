@@ -1,0 +1,130 @@
+"""class Car:
+    def __init__(self, reg_number, max_speed):
+        self.reg_number = reg_number
+        self.max_speed = max_speed
+        self.c_speed = 0
+        self.t_distance = 0
+
+    def __str__(self):
+        return f"Car [Registration Number: {self.reg_number}, Maximum Speed: {self.max_speed} km/h, " \
+               f"Current Speed: {self.c_speed} km/h, Travelled Distance: {self.t_distance} km]"
+
+
+if __name__ == "__main__":
+    new_car = Car(reg_number="GLT-862", max_speed = 200)
+
+    print(new_car)"""
+
+"""class Car:
+    def __init__(self, reg_number, max_speed):
+        self.reg_number = reg_number
+        self.max_speed = max_speed
+        self.c_speed = 0
+        self.t_distance = 0
+
+    def accelerate(self, change):
+        
+        self.c_speed = max(0, min(self.c_speed + change, self.max_speed))
+
+    def __str__(self):
+        return f"Car [Registration Number: {self.reg_number}, Maximum Speed: {self.max_speed} km/h, " \
+               f"Current Speed: {self.c_speed} km/h, Travelled Distance: {self.t_distance} km]"
+
+
+if __name__ == "__main__":
+    new_car = Car(reg_number="GLT-862", max_speed=200)
+
+    new_car.accelerate(30)
+    new_car.accelerate(70)
+    new_car.accelerate(50)
+
+    print(f"Current Speed after acceleration: {new_car.c_speed} km/h")
+
+    new_car.accelerate(-200)
+
+    print(f"Final Speed after emergency brake: {new_car.c_speed} km/h")"""
+
+"""class Car:
+    def __init__(self, reg_number, max_speed):
+        self.reg_number = reg_number
+        self.max_speed = max_speed
+        self.c_speed = 0
+        self.t_distance = 0
+
+    def accelerate(self, change):
+        self.c_speed = max(0, min(self.c_speed + change, self.max_speed))
+
+    def drive(self, hours):
+        self.t_distance += self.c_speed * hours
+
+    def __str__(self):
+        return f"Car [Registration Number: {self.reg_number}, Maximum Speed: {self.max_speed} km/h, " \
+               f"Current Speed: {self.c_speed} km/h, Travelled Distance: {self.t_distance} km]"
+
+
+if __name__ == "__main__":
+    new_car = Car(reg_number="GLT-862", max_speed=200)
+
+    new_car.accelerate(30)
+    new_car.accelerate(70)
+    new_car.accelerate(50)
+
+    print(f"Current Speed after acceleration: {new_car.c_speed} km/h")
+
+    new_car.accelerate(-200)
+
+    print(f"Final Speed after emergency brake: {new_car.c_speed} km/h")
+
+    new_car.drive(1.5)
+
+    print(f"Traveled Distance after driving: {new_car.t_distance} km")"""
+
+"""import random
+
+class Car:
+    def __init__(self, reg_number, max_speed):
+        self.reg_number = reg_number
+        self.max_speed = max_speed
+        self.c_speed = 0
+        self.t_distance = 0
+
+    def accelerate(self, change):
+        self.c_speed = max(0, min(self.c_speed + change, self.max_speed))
+
+    def drive(self, hours):
+        self.t_distance += self.c_speed * hours
+
+    def __str__(self):
+        return f"| {self.reg_number.ljust(8)} | {str(self.max_speed).ljust(10)} | {str(self.c_speed).ljust(12)} | {str(self.t_distance).ljust(15)} |"
+
+
+if __name__ == "__main__":
+
+    cars = [Car(reg_number=f"ABC-{i}", max_speed=random.randint(100, 200)) for i in range(1, 11)]
+
+    race_completed = False
+    hour = 1
+
+    while not race_completed:
+        print(f"\n--- Hour {hour} ---")
+        print("| Registration | Max Speed | Current Speed | Traveled Distance |")
+        print("|--------------|-----------|----------------|-------------------|")
+
+        for car in cars:
+            car.accelerate(random.randint(-10, 15))
+            car.drive(1)
+
+            if car.t_distance >= 10000:
+                race_completed = True
+
+            print(car)
+
+        hour += 1
+
+    print("\nRace Completed! Results:")
+    print("| Registration | Max Speed | Current Speed | Traveled Distance |")
+    print("|--------------|-----------|----------------|-------------------|")
+
+    for car in cars:
+        print(car)"""
+    
