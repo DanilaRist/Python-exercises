@@ -1,0 +1,91 @@
+"""class Publication:
+    def __init__(self, name):
+        self.name = name
+
+    def print_information(self):
+        print(f"Publication Name: {self.name}")
+
+class Book(Publication):
+    def __init__(self, name, author, page_count):
+        super().__init__(name)
+        self.author = author
+        self.page_count = page_count
+
+    def print_information(self):
+        super().print_information()
+        print(f"Author: {self.author}")
+        print(f"Page Count: {self.page_count}")
+
+class Magazine(Publication):
+    def __init__(self, name, chief_editor):
+        super().__init__(name)
+        self.chief_editor = chief_editor
+
+    def print_information(self):
+        super().print_information()
+        print(f"Chief Editor: {self.chief_editor}")
+
+if __name__ == "__main__":
+   
+    donald_duck = Magazine(name="Donald Duck", chief_editor="Aki Hyyppä")
+    compartment_no_6 = Book(name="Compartment No. 6", author="Rosa Liksom", page_count=192)
+
+    print("Information of Donald Duck Magazine:")
+    donald_duck.print_information()
+
+    print("\nInformation of Compartment No. 6 Book:")
+    compartment_no_6.print_information()"""
+
+"""class Car:
+    def __init__(self, reg_number, max_speed):
+        self.reg_number = reg_number
+        self.max_speed = max_speed
+        self.c_speed = 0
+        self.t_distance = 0
+
+    def drive(self, hours):
+        self.t_distance += self.c_speed * hours
+
+    def __str__(self):
+        return f"Car [Registration Number: {self.reg_number}, Maximum Speed: {self.max_speed} km/h, " \
+               f"Current Speed: {self.c_speed} km/h, Travelled Distance: {self.t_distance} km]"
+
+
+class ElectricCar(Car):
+    def __init__(self, reg_number, max_speed, battery_capacity):
+        super().__init__(reg_number, max_speed)
+        self.battery_capacity = battery_capacity
+
+    def __str__(self):
+        return f"ElectricCar [Registration Number: {self.reg_number}, Maximum Speed: {self.max_speed} km/h, " \
+               f"Current Speed: {self.c_speed} km/h, Travelled Distance: {self.t_distance} km, " \
+               f"Battery Capacity: {self.battery_capacity} kWh]"
+
+
+class GasolineCar(Car):
+    def __init__(self, reg_number, max_speed, tank_volume):
+        super().__init__(reg_number, max_speed)
+        self.tank_volume = tank_volume
+
+    def __str__(self):
+        return f"GasolineCar [Registration Number: {self.reg_number}, Maximum Speed: {self.max_speed} km/h, " \
+               f"Current Speed: {self.c_speed} km/h, Travelled Distance: {self.t_distance} km, " \
+               f"Tank Volume: {self.tank_volume} l]"
+
+
+if __name__ == "__main__":
+    electric_car = ElectricCar(reg_number="ABC-15", max_speed=180, battery_capacity=52.5)
+    gasoline_car = GasolineCar(reg_number="ACD-123", max_speed=165, tank_volume=32.3)
+
+    electric_car.c_speed = 150
+    gasoline_car.c_speed = 140
+
+    electric_car.drive(3)
+    gasoline_car.drive(3)
+
+    print("Electric Car Information:")
+    print(electric_car)
+
+    print("\nGasoline Car Information:")
+    print(gasoline_car)"""
+
