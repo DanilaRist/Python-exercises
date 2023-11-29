@@ -1,0 +1,194 @@
+"""class Elevator:
+    def __init__(self, bottom_floor, top_floor):
+        self.current_floor = bottom_floor
+        self.bottom_floor = bottom_floor
+        self.top_floor = top_floor
+
+    def go_to_floor(self, target_floor):
+        if target_floor < self.bottom_floor or target_floor > self.top_floor:
+            print("Invalid floor. Elevator cannot go to the specified floor.")
+            return
+
+        while self.current_floor != target_floor:
+            if self.current_floor < target_floor:
+                self.floor_up()
+            else:
+                self.floor_down()
+
+    def floor_up(self):
+        if self.current_floor < self.top_floor:
+            self.current_floor += 1
+            print(f"Elevator moving up. Current floor: {self.current_floor}")
+
+    def floor_down(self):
+        if self.current_floor > self.bottom_floor:
+            self.current_floor -= 1
+            print(f"Elevator moving down. Current floor: {self.current_floor}")
+
+
+if __name__ == "__main__":
+    
+    elevator = Elevator(bottom_floor=1, top_floor=10)
+
+    elevator.go_to_floor(5)
+
+    elevator.go_to_floor(1)"""
+
+
+
+"""class Elevator:
+    def __init__(self, bottom_floor, top_floor):
+        self.current_floor = bottom_floor
+        self.bottom_floor = bottom_floor
+        self.top_floor = top_floor
+
+    def go_to_floor(self, target_floor):
+        if target_floor < self.bottom_floor or target_floor > self.top_floor:
+            print("Invalid floor. Elevator cannot go to the specified floor.")
+            return
+
+        while self.current_floor != target_floor:
+            if self.current_floor < target_floor:
+                self.floor_up()
+            else:
+                self.floor_down()
+
+    def floor_up(self):
+        if self.current_floor < self.top_floor:
+            self.current_floor += 1
+            print(f"Elevator moving up. Current floor: {self.current_floor}")
+
+    def floor_down(self):
+        if self.current_floor > self.bottom_floor:
+            self.current_floor -= 1
+            print(f"Elevator moving down. Current floor: {self.current_floor}")
+
+
+class Building:
+    def __init__(self, bottom_floor, top_floor, num_elevators):
+        self.elevators = [Elevator(bottom_floor, top_floor) for _ in range(num_elevators)]
+
+    def run_all_elevators(self, destination_floor):
+        for i, elevator in enumerate(self.elevators, start=1):
+            print(f"Running elevator {i} to floor {destination_floor}")
+            elevator.go_to_floor(destination_floor)
+
+if __name__ == "__main__":
+
+    num_elevators = int(input("Enter the number of elevators in the building: "))
+
+    building = Building(bottom_floor=1, top_floor=10, num_elevators=num_elevators)
+
+    destination_floor = int(input("Enter the destination floor: "))
+
+    building.run_all_elevators(destination_floor)"""
+
+"""import random
+
+class Elevator:
+    def __init__(self, bottom_floor, top_floor):
+        self.current_floor = bottom_floor
+        self.bottom_floor = bottom_floor
+        self.top_floor = top_floor
+
+    def go_to_floor(self, target_floor):
+        if target_floor < self.bottom_floor or target_floor > self.top_floor:
+            print("Invalid floor. Elevator cannot go to the specified floor.")
+            return
+
+        while self.current_floor != target_floor:
+            if self.current_floor < target_floor:
+                self.floor_up()
+            else:
+                self.floor_down()
+
+    def floor_up(self):
+        if self.current_floor < self.top_floor:
+            self.current_floor += 1
+            print(f"Elevator moving up. Current floor: {self.current_floor}")
+
+    def floor_down(self):
+        if self.current_floor > self.bottom_floor:
+            self.current_floor -= 1
+            print(f"Elevator moving down. Current floor: {self.current_floor}")
+
+class Building:
+    def __init__(self, bottom_floor, top_floor, num_elevators):
+        self.elevators = [Elevator(bottom_floor, top_floor) for _ in range(num_elevators)]
+
+    def run_all_elevators(self, destination_floor):
+        for i, elevator in enumerate(self.elevators, start=1):
+            print(f"Running elevator {i} to floor {destination_floor}")
+            elevator.go_to_floor(destination_floor)
+
+    def fire_alarm(self):
+        print("Fire alarm triggered! Moving all elevators to the bottom floor.")
+        for i, elevator in enumerate(self.elevators, start=1):
+            elevator.go_to_floor(self.elevators[0].bottom_floor)
+
+if __name__ == "__main__":
+  
+    num_elevators = int(input("Enter the number of elevators in the building: "))
+
+    building = Building(bottom_floor=1, top_floor=10, num_elevators=num_elevators)
+
+    destination_floor = int(input("Enter the destination floor: "))
+
+    building.run_all_elevators(destination_floor)
+
+    building.fire_alarm()"""
+    
+    """import random
+
+class Car:
+    def __init__(self, reg_number, max_speed):
+        self.reg_number = reg_number
+        self.max_speed = max_speed
+        self.c_speed = 0
+        self.t_distance = 0
+
+    def accelerate(self, change):
+        self.c_speed = max(0, min(self.c_speed + change, self.max_speed))
+
+    def drive(self, hours):
+        self.t_distance += self.c_speed * hours
+
+    def __str__(self):
+        return f"{self.reg_number}\t\t{self.max_speed} km/h\t\t{self.c_speed} km/h\t\t{self.t_distance} km"
+
+class Race:
+    def __init__(self, name, distance, cars):
+        self.name = name
+        self.distance = distance
+        self.cars = cars
+
+    def hour_passes(self):
+        for car in self.cars:
+            car.accelerate(random.randint(-10, 15))
+            car.drive(1)
+
+    def print_status(self):
+        print("\nCurrent Race Status:")
+        print("Registration\tMax Speed\tCurrent Speed\tTraveled Distance")
+        print("-" * 70)
+        for car in self.cars:
+            print(car)
+
+    def race_finished(self):
+        return any(car.t_distance >= self.distance for car in self.cars)
+
+if __name__ == "__main__":
+
+    cars = [Car(reg_number=f"ABC-{i}", max_speed=random.randint(100, 200)) for i in range(1, 11)]
+
+    grand_derby = Race(name="Grand Demolition Derby", distance=8000, cars=cars)
+
+    hour_count = 0
+    while not grand_derby.race_finished():
+        if hour_count % 10 == 0:
+            grand_derby.print_status()
+        grand_derby.hour_passes()
+        hour_count += 1
+
+    grand_derby.print_status()
+    print(f"\nThe {grand_derby.name} has finished after {hour_count} hours!")"""
